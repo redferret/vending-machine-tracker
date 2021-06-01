@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :snacks
   root to: "owners#index"
 
   resources :owners do
     resources :machines, only: [:index]
   end
 
-  resources :machines, only: [:show]
+  resources :machines, only: [:show] do
+    resources :snacks, only: [:show, :new, :edit]
+  end
 end

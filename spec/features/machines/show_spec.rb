@@ -19,8 +19,11 @@ RSpec.describe 'The vending machine show page,' do
     visit machine_path(machine_1)
 
     within '#snack-list' do
-      expect(page).to have_content("#{snack_1.name} - $#{snack_1.price}")
-      expect(page).to have_content("#{snack_2.name} - $#{snack_2.price}")
+      expect(page).to have_content(snack_1.name)
+      expect(page).to have_content(snack_2.name)
+
+      expect(page).to have_content("$#{snack_1.price}")
+      expect(page).to have_content("$#{snack_2.price}")
     end
   end
 end
