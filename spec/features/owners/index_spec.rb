@@ -7,7 +7,10 @@ RSpec.describe 'The owner index page,' do
 
     visit owners_path
 
-    expect(page).to have_content(owner_1.name)
-    expect(page).to have_content(owner_2.name)
+    expect(page).to have_link(owner_1.name)
+    expect(page).to have_content(owner_1.machine_count)
+    
+    expect(page).to have_link(owner_2.name)
+    expect(page).to have_content(owner_2.machine_count)
   end
 end
