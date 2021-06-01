@@ -19,5 +19,17 @@ RSpec.describe Machine, type: :model do
         expect(machine.average_price).to eq "$3.00"
       end
     end
+
+    describe '#snack_count' do
+      it 'returns the number of snacks sold' do
+        owner = FactoryBot.create(:owner)
+        machine = FactoryBot.create(:machine, owner: owner)
+        FactoryBot.create(:snack, machine: machine)
+        FactoryBot.create(:snack, machine: machine)
+        FactoryBot.create(:snack, machine: machine)
+
+        expect(machine.snack_count).to eq 3
+      end
+    end
   end
 end
