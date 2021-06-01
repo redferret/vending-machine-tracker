@@ -1,5 +1,16 @@
 <h1><%= @owner.name %> Vending Machines</h1>
 
-<% @owner.machines.each do |machine| %>
-  <%= link_to machine.location, machine_path(machine), class:'btn btn-link'%>
-<% end %>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @owner.machines.each do |machine| %>
+      <tr>
+        <td><%= link_to machine.location, machine_path(@owner), class:'btn btn-link' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
