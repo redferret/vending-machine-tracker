@@ -1,15 +1,6 @@
 class SnacksController < ApplicationController
   before_action :set_snack, only: %i[ show edit update destroy ]
 
-  # GET /snacks or /snacks.json
-  def index
-    @snacks = Snack.all
-  end
-
-  # GET /snacks/1 or /snacks/1.json
-  def show
-  end
-
   # GET /snacks/new
   def new
     @snack = Snack.new
@@ -19,7 +10,7 @@ class SnacksController < ApplicationController
   def edit
   end
 
-  # POST /snacks or /snacks.json
+  # POST /snacks
   def create
     @snack = Snack.new(snack_params)
 
@@ -32,7 +23,7 @@ class SnacksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /snacks/1 or /snacks/1.json
+  # PATCH/PUT /snacks/1
   def update
     respond_to do |format|
       if @snack.update(snack_params)
@@ -43,7 +34,7 @@ class SnacksController < ApplicationController
     end
   end
 
-  # DELETE /snacks/1 or /snacks/1.json
+  # DELETE /snacks/1
   def destroy
     @snack.destroy
     respond_to do |format|
