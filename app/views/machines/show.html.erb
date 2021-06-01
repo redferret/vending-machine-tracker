@@ -9,12 +9,20 @@
       </tr>
     </thead>
     <tbody>
-      <%= @machine.snacks.each do |snack| %>
+      <% @machine.snacks.each do |snack| %>
         <tr>
           <td><%= snack.name %></td>
           <td>$<%= snack.price %></td>
         </tr>
       <% end %>
+    </tbody>
+  </table>
+  <table class='table'>
+    <thead>
+      <tr><th>Average Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%=@machine.average_price%></td></tr>
     </tbody>
   </table>
 </div>
