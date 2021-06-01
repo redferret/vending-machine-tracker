@@ -26,10 +26,8 @@ class SnacksController < ApplicationController
     respond_to do |format|
       if @snack.save
         format.html { redirect_to @snack, notice: "Snack was successfully created." }
-        format.json { render :show, status: :created, location: @snack }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @snack.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +37,8 @@ class SnacksController < ApplicationController
     respond_to do |format|
       if @snack.update(snack_params)
         format.html { redirect_to @snack, notice: "Snack was successfully updated." }
-        format.json { render :show, status: :ok, location: @snack }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @snack.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +48,6 @@ class SnacksController < ApplicationController
     @snack.destroy
     respond_to do |format|
       format.html { redirect_to snacks_url, notice: "Snack was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
@@ -64,6 +59,6 @@ class SnacksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def snack_params
-      params.require(:snack).permit(:name, :price, :references)
+      params.require(:snack).permit(:name, :price, :machine_id)
     end
 end
