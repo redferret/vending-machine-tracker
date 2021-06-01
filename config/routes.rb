@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :snacks
   root to: "owners#index"
 
   resources :owners do
