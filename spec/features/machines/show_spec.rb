@@ -25,5 +25,9 @@ RSpec.describe 'The vending machine show page,' do
       expect(page).to have_content("$#{snack_1.price}")
       expect(page).to have_content("$#{snack_2.price}")
     end
+
+    within '#info-list' do
+      expect(page).to have_content(machine_1.average_price)
+    end
   end
 end
