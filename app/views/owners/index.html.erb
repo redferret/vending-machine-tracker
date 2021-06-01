@@ -1,7 +1,18 @@
 <h1>Vending Machine Owners</h1>
 
-<ul>
-  <% @owners.each do |owner| %>
-    <li><%= owner.name %></li>
-  <% end %>
-</ul>
+<table class='table' id='owners-list'>
+  <thead>
+    <tr>
+      <th>Owner's Name</th>
+      <th># of Vending Machines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @owners.each do |owner| %>
+      <tr>
+        <td><%= link_to owner.name, machine_path(owner), class:'btn btn-link' %></td>
+        <td><%= owner.machine_count%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
