@@ -1,0 +1,33 @@
+<h2><%= @snack.name %> Statistics</h2>
+<table class='table' id='snack-stats'>
+  <thead>
+    <tr>
+      <th>Name of Snack</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @snack.name%></td>
+      <td><%= @snack.price_formatted%></td>
+    </tr>
+  </tbody>
+</table>
+<table class='table' id='vending-machines'>
+  <thead>
+    <tr>
+      <th>Locations Snack is Sold at</th>
+      <th>Average Price of Snacks at Location</th>
+      <th>Different Snack Count at Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snacks.machines.each do |machine| %>
+      <tr>
+        <td><%= machine.location %></td>
+        <td><%= machine.average_price %></td>
+        <td><%= machine.snack_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
