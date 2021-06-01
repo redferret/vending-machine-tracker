@@ -29,11 +29,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.before :each do
-    DatabaseCleaner.clean
-  end
-
-  config.after :each do
+  config.after :all do
     DatabaseCleaner.clean
   end
 
