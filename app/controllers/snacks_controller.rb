@@ -10,6 +10,9 @@ class SnacksController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   # POST /snacks
   def create
     @snack = Snack.new(snack_params)
